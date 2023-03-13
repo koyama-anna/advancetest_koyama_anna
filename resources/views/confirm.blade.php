@@ -104,6 +104,20 @@
             cursor: pointer;
         }
 
+        .fix-btn{
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            outline: none;
+            padding: 10px;
+            appearance: none;
+            display: block;
+            margin: 0 auto;
+            text-decoration: underline;
+            font-size: 13px
+
+        }
+
 
 
 
@@ -180,9 +194,11 @@
                     </td>
                 </tr>
             </table>
-            <button type="submit" class="send-btn" >送信</button>
+            <button type="submit" class="send-btn" name="action" value="send">送信</button>
+            
+            <button type="button" class="fix-btn" value="fix" onclick="history.back()">修正する</button>
+            
         </form>
-        
     </div>
 </body>
 </html>

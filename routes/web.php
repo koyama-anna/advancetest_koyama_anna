@@ -17,8 +17,12 @@ use App\Models\Contact;
 */
 
 Route::get('/', [FormController::class, 'contact']);
-
 Route::get('/confirm', [FormController::class, 'confirm']);
 Route::post('/confirm', [FormController::class, 'confirm']);
 Route::get('/send', [FormController::class, 'send']);
 Route::post('/send', [FormController::class, 'send']);
+Route::get('/system', [FormController::class, 'system']);
+Route::get('/search', [FormController::class, 'search']);
+Route::post('/search', [FormController::class, 'search']);
+Route::get('/remove', [FormController::class, 'remove']);
+Route::post('/remove', [FormController::class, 'remove']);

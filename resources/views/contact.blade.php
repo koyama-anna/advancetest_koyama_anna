@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>お問い合わせ</title>
     <link rel="stylesheet" href="{{ asset('/css/reset.css') }}">
-
+    <script src="https://yubinbango.github.io/yubinbango/yubinbango.js" charset="UTF-8"></script>
+    <script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js?ver=1.11.3'></script>
     <style>
         .contact{
             width: 750px;
@@ -170,7 +171,7 @@
 <body>
     <div class="contact">
         <h1 class="contact-ttl">お問い合わせ</h1>
-        <form action="/confirm" method="POST">
+        <form action="/confirm" method="POST" class="h-adr">
         @csrf
             <table class="contact-table">
                 <tr>
@@ -179,15 +180,16 @@
                     </th>
                     <td class="contact-body form-fullname">
                         <div class="fullname">
-                        <input type="text" class="form-name" name="firstname" >
-                        <input type="text" class="form-name" name="lastname" >
+                        <input type="text" class="form-name" name="firstname" value="{{old('firstname')}}">
+                        <input type="text" class="form-name" name="lastname" value="{{old('lastname')}}">
                         </div>
                         
                             <div class="example example-name">
                                 <span class="firstname">例）山田</span>
                                 <span class="lastname">例）太郎</span>
                             </div>
-                            
+                            <div class="err_firstname" id="err_firstname"></div>
+                            <div class="err_lastname" id="err_lastname"></div>
                         @error('firstname')
                         <p class="error">{{$message}}</p>
                         @enderror
@@ -213,7 +215,7 @@
                         <div class="contact-item-name">メールアドレス<span class="contact-item-a">※</span></div>
                     </th>
                     <td class="contact-body">
-                        <input type="email" name="email" class="form-text">
+                        <input type="email" name="email" class="form-text" value="{{old('email')}}">
                             <div class="example-email">
                                 <span class="email_e">例）test@example.com</span>
                             </div>
@@ -229,8 +231,9 @@
                     </th>
                     <td class="contact-body postcode">
                         <div class="postcode_txt">
+                            <span class="p-country-name" style="display:none;">Japan</span>
                             <span class="postcode-mark">〒</span>
-                            <input type="text" name="postcode" class="postcode-textarea">
+                            <input type="text" name="postcode" class="p-postal-code postcode-textarea" value="{{old('postcode')}}">
                         </div>
                             <div class="example-postcode">
                                 <span class="postcode_e">例）123-4567</span>
@@ -246,7 +249,7 @@
                         <div class="contact-item-name">住所<span class="contact-item-a">※</span></div>
                     </th>
                     <td class="contact-body">
-                        <input type="text" name="address" class="form-text">
+                        <input type="text" name="address" class="form-text p-region p-locality p-street-address p-extended-address" value="{{old('address')}}">
                         <div class="example-address">
                             <span class="address_e">例）東京都渋谷区千駄ヶ谷1-2-3</span>
                         </div>
@@ -262,7 +265,7 @@
                         <div class="contact-item-name">建物名</div>
                     </th>
                     <td class="contact-body">
-                        <input type="text" name="building_name" class="form-text">
+                        <input type="text" name="building_name" class="form-text" value="{{old('building_name')}}">
                         <div class="example-building">
                             <span class="building_e">例）千駄ヶ谷マンション101</span>
                         </div>
@@ -279,7 +282,7 @@
                         <div class="contact-item-name">ご意見<span class="contact-item-a">※</span></div>
                     </th>
                     <td class="contact-body">
-                        <textarea name="opinion" class="contact-textarea"></textarea>
+                        <textarea name="opinion" class="contact-textarea" value="{{old('opinion')}}"></textarea>
                         @error('opinion')
                         <p class="error">{{$message}}</p>
                         @enderror
@@ -295,5 +298,25 @@
         </form>
         
     </div>
+    <script>
+        $(function(){
+            $(".firstname").bind("blur",function(){
+                var _textbox=$(this).val();
+                check_textbox(_textbox);
+            });
+        });
+    function check_textbox(str){
+        $("#err_textbox p").remove();
+	var _result = true;
+	var _textbox = $.trim(str);
+
+	if(_textbox.match(/^[ 　\r\n\t]*$/)){
+		$("#err_textbox").append("<p><i class=\"fa fa-exclamation-triangle\"></i>苗字を入力してください。</p>");
+		_result = false;
+	}
+	return _result;
+    }
+
+    </script>
 </body>
 </html>
