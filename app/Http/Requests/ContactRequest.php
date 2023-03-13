@@ -34,6 +34,11 @@ class ContactRequest extends FormRequest
         ];
     }
 
+    public function prepareForValidation()
+    {
+        $this->merge(['postcode' => mb_convert_kana($this->postcode, 'a')]);
+    }
+
     public function messages()
     {
         return [
@@ -43,8 +48,8 @@ class ContactRequest extends FormRequest
             'email.required' => 'メールアドレスを入力してください',
             'email.email' => 'メールアドレスの形式で入力してください',
             'postcode.required' => '郵便番号を入力して下さい',
-            'postcode.min' => 'ハイフン込みの半角8文字で入力して下さい',
-            'postcode.max' => 'ハイフン込みの半角8文字で入力して下さい',
+            'postcode.min' => 'ハイフン込みの8文字で入力して下さい',
+            'postcode.max' => 'ハイフン込みの8文字で入力して下さい',
             'address.required' => '住所を入力してください',
             'opinion.required' => 'ご意見を入力して下さい',
             'opinion.max' => '120文字以内で入力して下さい'
