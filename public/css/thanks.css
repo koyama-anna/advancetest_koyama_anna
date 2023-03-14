@@ -1,0 +1,29 @@
+.contact{
+    margin-top: 250px;
+}
+p{
+    margin: 0 auto;
+    padding: 50px 0;
+    font-size: 15px;
+    text-align: center;
+}
+
+.top-btn{
+    width: 200px;
+    background-color: black;
+    color: white; 
+    font-weight: bold; 
+    display: block;
+    margin: 0 auto;
+    font-size: 16px; 
+    padding: 15px; 
+    border-radius: 10px; 
+    border: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+}
+
+
+

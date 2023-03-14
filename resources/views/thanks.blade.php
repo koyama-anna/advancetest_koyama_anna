@@ -6,38 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>お問い合わせありがとうございました</title>
     <link rel="stylesheet" href="{{ asset('/css/reset.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/thanks.css') }}">
 
     <style>
-        .contact{
-            margin-top: 250px;
-        }
-        p{
-            margin: 0 auto;
-            padding: 50px 0;
-            font-size: 15px;
-            text-align: center;
-        }
-
-        .top-btn{
-            width: 200px;
-            background-color: black;
-            color: white; 
-            font-weight: bold; 
-            display: block;
-            margin: 0 auto;
-            font-size: 16px; 
-            padding: 15px; 
-            border-radius: 10px; 
-            border: none;
-            appearance: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            cursor: pointer;
-        }
-
-
-
-
+        
     </style>
 </head>
 <body>

@@ -6,165 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>お問い合わせ</title>
     <link rel="stylesheet" href="{{ asset('/css/reset.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/contact.css') }}">
     <script src="https://yubinbango.github.io/yubinbango/yubinbango.js" charset="UTF-8"></script>
-    <script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js?ver=1.11.3'></script>
+    
     <style>
-        .contact{
-            width: 750px;
-            margin: 0 auto;
-            padding: 40px 0;
-        }
-
-        .contact-ttl{
-            font-size: 30px;
-            font-weight: bold;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .contact-table{
-            width: 100%;
-            margin-bottom: 20px;
-        }
-
-        .contact-item,
-        .contact-body {
-            padding: 15px;
-        }
-
-        .contact-item {
-
-            font-size: 15px;
-            text-align: left; 
-            vertical-align: top;
-            width: 25%;
-        }
-
-        .contact-item-a{
-            color: red;
-        }
-
-        .gender{
-            font-size: 15px;
-        }
-
-        .firstname,
-        .lastname{
-            font-size: 15px;
-            color:#ccc;
-            padding: 5px 15px;
-        }
-
-        
-
-        .example-name{
-            display: flex;
-            justify-content: space-between;
-            margin-top: 5px
-        }
-
-        .example-email,
-        .example-postcode,
-        .example-address,
-        .example-building{
-            font-size: 15px;
-            color: #ccc;
-            padding: 10px 20px;
-        }
-        
-        .postcode_e{
-            padding-left: 20px;
-        }
-
-        .fullname{
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .firstname{
-            margin-left: 15px;
-        }
-
-        .lastname{
-            margin-right: 150px
-        }
-
-        .form-name{
-            
-            width: 44%;
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            appearance: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-        }
-        .form-text{
-            box-sizing: border-box;
-            width: 100%;
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            appearance: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            
-        }
-
-        .postcode-mark{
-            font-size: 15px;
-            font-weight: bold;
-            padding: 10px 10px;
-        }
-
-        .postcode-textarea {
-            
-            width: 100%;
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            appearance: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-        }
-
-        .postcode_txt{
-            display: flex;
-            justify-content: space-between;
-
-        }
-
-        .contact-textarea {
-            box-sizing: border-box;
-            width: 100%;
-            padding: 10px;
-            height: 150px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            appearance: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-        }
-
-        .confirm-btn{
-            width: 200px;
-            background-color: black;
-            color: white; 
-            font-weight: bold; 
-            display: block;
-            margin: 0 auto;
-            font-size: 16px; 
-            padding: 15px; 
-            border-radius: 10px; 
-            border: none;
-            appearance: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            cursor: pointer;
-        }
-
-
-
 
     </style>
 </head>
@@ -282,7 +127,7 @@
                         <div class="contact-item-name">ご意見<span class="contact-item-a">※</span></div>
                     </th>
                     <td class="contact-body">
-                        <textarea name="opinion" class="contact-textarea" value="{{old('opinion')}}"></textarea>
+                        <textarea name="opinion" class="contact-textarea" >{{old('opinion')}}</textarea>
                         @error('opinion')
                         <p class="error">{{$message}}</p>
                         @enderror
@@ -298,25 +143,6 @@
         </form>
         
     </div>
-    <script>
-        $(function(){
-            $(".firstname").bind("blur",function(){
-                var _textbox=$(this).val();
-                check_textbox(_textbox);
-            });
-        });
-    function check_textbox(str){
-        $("#err_textbox p").remove();
-	var _result = true;
-	var _textbox = $.trim(str);
-
-	if(_textbox.match(/^[ 　\r\n\t]*$/)){
-		$("#err_textbox").append("<p><i class=\"fa fa-exclamation-triangle\"></i>苗字を入力してください。</p>");
-		_result = false;
-	}
-	return _result;
-    }
-
-    </script>
+    
 </body>
 </html>
