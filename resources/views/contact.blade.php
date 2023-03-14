@@ -25,8 +25,8 @@
                     </th>
                     <td class="contact-body form-fullname">
                         <div class="fullname">
-                        <input type="text" class="form-name" name="firstname" value="{{old('firstname')}}">
-                        <input type="text" class="form-name" name="lastname" value="{{old('lastname')}}">
+                        <input type="text" class="form-name" name="firstname" value="{{old('firstname')}}" required>
+                        <input type="text" class="form-name" name="lastname" value="{{old('lastname')}}" required>
                         </div>
                         
                             <div class="example example-name">
@@ -60,7 +60,7 @@
                         <div class="contact-item-name">メールアドレス<span class="contact-item-a">※</span></div>
                     </th>
                     <td class="contact-body">
-                        <input type="email" name="email" class="form-text" value="{{old('email')}}">
+                        <input type="email" name="email" class="form-text" value="{{old('email')}}" required>
                             <div class="example-email">
                                 <span class="email_e">例）test@example.com</span>
                             </div>
@@ -78,7 +78,7 @@
                         <div class="postcode_txt">
                             <span class="p-country-name" style="display:none;">Japan</span>
                             <span class="postcode-mark">〒</span>
-                            <input type="text" name="postcode" class="p-postal-code postcode-textarea" value="{{old('postcode')}}">
+                            <input type="text" name="postcode" class="p-postal-code postcode-textarea" value="{{old('postcode')}}" required>
                         </div>
                             <div class="example-postcode">
                                 <span class="postcode_e">例）123-4567</span>
@@ -94,7 +94,7 @@
                         <div class="contact-item-name">住所<span class="contact-item-a">※</span></div>
                     </th>
                     <td class="contact-body">
-                        <input type="text" name="address" class="form-text p-region p-locality p-street-address p-extended-address" value="{{old('address')}}">
+                        <input type="text" name="address" class="form-text p-region p-locality p-street-address p-extended-address" value="{{old('address')}}" required>
                         <div class="example-address">
                             <span class="address_e">例）東京都渋谷区千駄ヶ谷1-2-3</span>
                         </div>
@@ -127,7 +127,7 @@
                         <div class="contact-item-name">ご意見<span class="contact-item-a">※</span></div>
                     </th>
                     <td class="contact-body">
-                        <textarea name="opinion" class="contact-textarea" >{{old('opinion')}}</textarea>
+                        <textarea name="opinion" class="contact-textarea" required>{{old('opinion')}}</textarea>
                         @error('opinion')
                         <p class="error">{{$message}}</p>
                         @enderror
